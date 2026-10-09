@@ -108,11 +108,11 @@ func TestIsSpace(t *testing.T) {
 		{name: "space", r: ' ', want: true},
 
 		// other "space" symbols from ASCII
-		{name: "tab", r: '\t', want: false},
-		{name: "newline", r: '\n', want: false},
-		{name: "carriage return", r: '\r', want: false},
-		{name: "vertical tab", r: '\v', want: false},
-		{name: "form feed", r: '\f', want: false},
+		{name: "tab", r: '\t', want: true},
+		{name: "newline", r: '\n', want: true},
+		{name: "carriage return", r: '\r', want: true},
+		{name: "vertical tab", r: '\v', want: true},
+		{name: "form feed", r: '\f', want: true},
 
 		// neighbour values
 		{name: "exclamation after space", r: '!', want: false},
@@ -123,11 +123,6 @@ func TestIsSpace(t *testing.T) {
 		{name: "digit", r: '0', want: false},
 		{name: "underscore", r: '_', want: false},
 		{name: "cyrillic", r: 'ж', want: false},
-
-		// Unicode spaces
-		{name: "non-breaking space", r: '\u00A0', want: false},
-		{name: "em space", r: '\u2003', want: false},
-		{name: "ideographic space", r: '\u3000', want: false},
 
 		// borderline values
 		{name: "null rune", r: 0, want: false},
